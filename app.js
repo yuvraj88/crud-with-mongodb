@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const blogRouter = require("./routes/BlogRoutes");
 
 const app = express();
-
+const PORT = 4001;
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,7 +25,7 @@ mongoose.connect(
   }
 );
 
-app.listen(3001, () => {
+app.listen(4001, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
