@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const blogRouter = require("./routes/BlogRoutes");
 
 const app = express();
-const PORT = 4001;
+const PORT = process.env.PORT;
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -11,7 +11,7 @@ app.use("/api/blogs", blogRouter);
 
 //configure mongoose
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/CRUD",
+  process.env.MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -25,7 +25,7 @@ mongoose.connect(
   }
 );
 
-app.listen(4001, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
