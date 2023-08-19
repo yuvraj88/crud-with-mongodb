@@ -5,6 +5,8 @@ const blogSchema = new Schema({
   title: String,
   body: String,
   image: String,
+  tags: String,
+  author: String,
   createdAt: {
     type: Date,
     default: Date.now,

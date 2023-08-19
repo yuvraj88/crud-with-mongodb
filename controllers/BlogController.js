@@ -14,6 +14,7 @@ exports.createBlog = async (req, res) => {
     const blog = await blogService.createBlog(req.body);
     res.json({ data: blog, status: "success" });
   } catch (err) {
+    console.log(err);
     res.status(500).json({ error: err.message });
   }
 };

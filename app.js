@@ -1,14 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const blogRouter = require("./routes/BlogRoutes");
-
+const userRoutes = require("./routes/UserRoutes");
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4001;
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/blogs", blogRouter);
-
+app.use("/api/user", userRoutes);
 //configure mongoose
 mongoose.connect(
   process.env.MONGODB_URI,
